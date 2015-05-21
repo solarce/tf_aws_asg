@@ -11,8 +11,8 @@ variable "ami_id" {}
 variable "instance_type" {}
 variable "iam_instance_profile" {}
 variable "key_name" {}
-variable "security_group" {
-  description = "The security group the instances to use"
+variable "security_groups" {
+  // comma separated list
 }
 
 variable "user_data" {

@@ -21,11 +21,10 @@ Input Variables
    E.g. arn:aws:iam::XXXXXXXXXXXX:instance-profile/my-instance-profile
 - `key_name` - The SSH key name (uploaded to EC2) instances should
    be populated with.
-- `security_group` - The Security Group ID that instances in the ASG
-    - This is usually set to resolve to a security group you make in the
-      same template as this module, e.g. "${module.sg_web.security_group_id_web}"
-    - It needs to be customized based on the name of your module resource.
-   should use.
+- `security_groups` - The Security Group IDS that instances in the ASG use.
+    - Pass a list of the security groups you create in the template that
+      you're including this module with, as a comma separated list, e.g.
+      `"${module.sg_consul.security_group_id},${module.sg_consul2.security_group_id}"`
 - `user_data` - The path to the user_data file for the Launch Configuration.
     - Terraform will include the contents of this file in the Launch Configuration.
 - `asg_name` - The Auto-Scaling group name.
